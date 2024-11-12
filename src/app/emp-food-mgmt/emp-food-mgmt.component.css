@@ -1,0 +1,64 @@
+.food-order-container {
+  padding: 20px;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+.me-2 {
+  margin-right: 12px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mb-1 {
+  margin-bottom: 4px;
+}
+
+.p-2 {
+  padding: 8px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-danger {
+  color: red;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+.employee-details {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.total-fine {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.pending-status {
+  color: red;
+}

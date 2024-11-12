@@ -1,0 +1,47 @@
+<div class="food-order-container">
+    <h1 class="text-center mt-0">Food Order App</h1>
+    <div>
+        <p class="font-size-18 mb-1">Please select the month</p>
+        <input placeholder="please enter month" class="me-2 p-2 rounded" [(ngModel)]="month" />
+        <button (click)="submit()" class="p-2 rounded">Submit</button>
+    </div>
+    <div *ngIf="employeeData">
+        <h2 class="text-center"><strong>Order History</strong></h2>
+        <p><strong>User Name:</strong> {{ employeeData?.user?.f_name }} {{ employeeData?.user?.l_name }}</p>
+
+        <div class="employee-details">
+            <p><strong>Employee ID:</strong> {{ employeeData?.user?.emp_id }}</p>
+            <p><strong>Email:</strong> {{ employeeData?.user?.email }}</p>
+            <p><strong>Phone:</strong> {{ employeeData?.user?.phone }}</p>
+        </div>
+
+        <div class="total-fine">
+            <p><strong>Total Fine for the Month: <span class="text-danger">₹ {{ fines }}</span></strong></p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Breakfast</th>
+                    <th>Lunch</th>
+                    <th>Dinner</th>
+                    <th>Fine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of employeeData?.reports">
+                    <td>{{ report.date }}</td>
+                    <td [ngClass]="{'pending-status': isPending(getMealStatus(report, 'breakfast'))}">{{ getMealStatus(report, 'breakfast') }}</td>
+                    <td [ngClass]="{'pending-status': isPending(getMealStatus(report, 'lunch'))}">{{ getMealStatus(report, 'lunch') }}</td>
+                    <td [ngClass]="{'pending-status': isPending(getMealStatus(report, 'dinner'))}">{{ getMealStatus(report, 'dinner') }}</td>
+                    <td>
+                        <span [ngClass]="{'pending-status': hasPendingMeals(report)}">
+                            ₹ {{ calculateFineForDay(report) }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
